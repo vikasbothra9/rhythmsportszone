@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm Sports Zone | Ooty's Premier Indoor Sports & Gaming Arena</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F19',
+                        brandCard: '#131D31',
+                        neonBlue: '#00F0FF',
+                        neonLime: '#39FF14',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0B0F19; color: #F3F4F6; }
+        .neon-glow-blue { box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
+        .neon-glow-lime { box-shadow: 0 0 20px rgba(57, 255, 20, 0.4); }
+        .neon-text-blue { text-shadow: 0 0 10px rgba(0, 240, 255, 0.6); }
+        .neon-text-lime { text-shadow: 0 0 10px rgba(57, 255, 20, 0.6); }
+    </style>
+</head>
+<body class="bg-brandDark text-slate-100 antialiased selection:bg-neonLime selection:text-brandDark">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brandDark/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-neonBlue to-neonLime p-0.5 flex items-center justify-center neon-glow-blue">
+                    <div class="w-full h-full bg-brandDark rounded-[10px] flex items-center justify-center">
+                        <i class="fa-solid fa-bolt text-neonLime text-xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider uppercase bg-gradient-to-r from-neonBlue to-neonLime bg-clip-text text-transparent">Rhythm</span>
+                    <span class="block text-xs font-semibold tracking-widest text-slate-400 uppercase">Sports Zone Ooty</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#home" class="hover:text-neonBlue transition-colors">Home</a>
+                <a href="#facilities" class="hover:text-neonBlue transition-colors">Facilities</a>
+                <a href="#about" class="hover:text-neonBlue transition-colors">About Us</a>
+                <a href="#reviews" class="hover:text-neonBlue transition-colors">Reviews</a>
+                <a href="#contact" class="hover:text-neonBlue transition-colors">Location & Contact</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="tel:+918248643230" class="flex items-center space-x-2 text-slate-300 hover:text-neonLime text-sm font-semibold transition-colors">
+                    <i class="fa-solid fa-phone text-neonLime"></i>
+                    <span>+91 82486 43230</span>
+                </a>
+                <button onclick="openBookingModal()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-neonBlue to-neonLime text-brandDark font-bold text-sm uppercase tracking-wider hover:opacity-90 neon-glow-blue transition-all transform hover:-translate-y-0.5">
+                    Book Slot
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none">
+                <i id="mobileMenuIcon" class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brandCard border-b border-slate-800 px-6 py-6 space-y-4">
+            <a href="#home" onclick="toggleMobileMenu()" class="block text-lg font-medium hover:text-neonBlue">Home</a>
+            <a href="#facilities" onclick="toggleMobileMenu()" class="block text-lg font-medium hover:text-neonBlue">Facilities</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-lg font-medium hover:text-neonBlue">About Us</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="block text-lg font-medium hover:text-neonBlue">Reviews</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-lg font-medium hover:text-neonBlue">Location & Contact</a>
+            <div class="pt-4 border-t border-slate-700 flex flex-col space-y-3">
+                <a href="tel:+918248643230" class="flex items-center space-x-2 text-neonLime font-semibold">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 82486 43230</span>
+                </a>
+                <button onclick="toggleMobileMenu(); openBookingModal();" class="w-full py-3 rounded-xl bg-gradient-to-r from-neonBlue to-neonLime text-brandDark font-bold text-center uppercase tracking-wider">
+                    Book Slot Now
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden bg-gradient-to-b from-brandDark via-[#0e1626] to-brandDark">
+        <!-- Background Glow Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-neonBlue/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-neonLime/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 bg-brandCard border border-slate-700/80 px-4 py-2 rounded-full mb-8 shadow-lg">
+                <div class="flex items-center text-amber-400 space-x-1">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="text-sm font-bold text-slate-200">4.9 Star Rating (Top Rated in Ooty)</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight uppercase leading-tight mb-6">
+                Ooty's Premier <br/>
+                <span class="bg-gradient-to-r from-neonBlue via-teal-300 to-neonLime bg-clip-text text-transparent neon-text-blue">Indoor Sports & Gaming Zone</span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed">
+                Step into the ultimate arena for high-energy indoor turf sports, competitive gaming, and unforgettable group tournaments in the heart of Upper Bazar, Ooty. Open daily till late!
+            </p>
+
+            <!-- Action CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-neonBlue to-neonLime text-brandDark font-extrabold text-base uppercase tracking-wider neon-glow-blue hover:scale-105 transition-transform duration-300 flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-calendar-days text-lg"></i>
+                    <span>Book Your Slot Now</span>
+                </button>
+                <a href="https://wa.me/918248643230?text=Hi%20Rhythm%20Sports%20Zone,%20I%20would%20like%20to%20inquire%20about%20slot%20availability." target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brandCard border border-slate-700 text-slate-100 font-extrabold text-base uppercase tracking-wider hover:border-neonLime hover:text-neonLime transition-all duration-300 flex items-center justify-center space-x-3">
+                    <i class="fa-brands fa-whatsapp text-neonLime text-xl"></i>
+                    <span>WhatsApp Enquiry</span>
+                </a>
+            </div>
+
+            <!-- Quick Info Bar -->
+            <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
+                <div class="bg-brandCard/60 backdrop-blur border border-slate-800 p-5 rounded-2xl flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-xl">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400 font-semibold uppercase">Open Daily</p>
+                        <p class="text-sm font-bold text-white">6:30 AM – 11:30 PM</p>
+                    </div>
+                </div>
+                <div class="bg-brandCard/60 backdrop-blur border border-slate-800 p-5 rounded-2xl flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-neonLime/10 flex items-center justify-center text-neonLime text-xl">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400 font-semibold uppercase">Location</p>
+                        <p class="text-sm font-bold text-white">Upper Bazar, Ooty</p>
+                    </div>
+                </div>
+                <div class="bg-brandCard/60 backdrop-blur border border-slate-800 p-5 rounded-2xl flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-400/10 flex items-center justify-center text-amber-400 text-xl">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400 font-semibold uppercase">Experience</p>
+                        <p class="text-sm font-bold text-white">Pro Turfs & Gaming</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facilities" class="py-24 bg-[#0d1322] border-t border-slate-800/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-neonBlue font-bold text-sm tracking-widest uppercase mb-3 block">What We Offer</span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-4">World-Class Facilities & Action</h2>
+                <p class="text-slate-400 text-base sm:text-lg">Designed for athletes, casual players, and gaming enthusiasts looking for premium indoor recreation in Ooty.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Facility 1 -->
+                <div class="bg-brandCard border border-slate-800 rounded-3xl p-6 hover:border-neonBlue transition-all duration-300 group hover:-translate-y-2">
+                    <div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?auto=format&fit=crop&q=80&w=600" alt="Indoor Turf" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/131D31/00F0FF?text=Indoor+Turf'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandDark/80 to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 bg-neonBlue text-brandDark font-extrabold text-xs px-3 py-1 rounded-full uppercase">Turf Arena</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-neonBlue transition-colors">Indoor Turf & Play Area</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">High-traction synthetic turf designed for football, cricket practice, and energetic sports sessions with friends.</p>
+                    <button onclick="openBookingModal()" class="text-neonBlue font-semibold text-sm flex items-center space-x-2 group-hover:translate-x-1 transition-transform">
+                        <span>Reserve Turf</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Facility 2 -->
+                <div class="bg-brandCard border border-slate-800 rounded-3xl p-6 hover:border-neonLime transition-all duration-300 group hover:-translate-y-2">
+                    <div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600" alt="Gaming Zone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/131D31/39FF14?text=Gaming+Zone'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandDark/80 to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 bg-neonLime text-brandDark font-extrabold text-xs px-3 py-1 rounded-full uppercase">Gaming Zone</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-neonLime transition-colors">High-End Gaming Zone</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">Immersive gaming setups with top-tier consoles and multiplayer action for gaming tournaments and hangouts.</p>
+                    <button onclick="openBookingModal()" class="text-neonLime font-semibold text-sm flex items-center space-x-2 group-hover:translate-x-1 transition-transform">
+                        <span>Check Gaming Slots</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Facility 3 -->
+                <div class="bg-brandCard border border-slate-800 rounded-3xl p-6 hover:border-neonBlue transition-all duration-300 group hover:-translate-y-2">
+                    <div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=600" alt="Tournaments" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/131D31/00F0FF?text=Tournaments'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandDark/80 to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 bg-neonBlue text-brandDark font-extrabold text-xs px-3 py-1 rounded-full uppercase">Competitions</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-neonBlue transition-colors">Group Tournaments</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">Organize or join local leagues, corporate sports days, and weekend tournaments with full referee support.</p>
+                    <button onclick="openBookingModal()" class="text-neonBlue font-semibold text-sm flex items-center space-x-2 group-hover:translate-x-1 transition-transform">
+                        <span>Join Tournament</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Facility 4 -->
+                <div class="bg-brandCard border border-slate-800 rounded-3xl p-6 hover:border-neonLime transition-all duration-300 group hover:-translate-y-2">
+                    <div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=600" alt="Sports Gear & Lounge" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/131D31/39FF14?text=Gear+And+Lounge'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandDark/80 to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 bg-neonLime text-brandDark font-extrabold text-xs px-3 py-1 rounded-full uppercase">Lounge & Gear</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-neonLime transition-colors">Equipment & Refreshments</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">Quality gear provided on-site, locker facilities, and refreshment stations to recharge after an intense game.</p>
+                    <button onclick="openBookingModal()" class="text-neonLime font-semibold text-sm flex items-center space-x-2 group-hover:translate-x-1 transition-transform">
+                        <span>Learn More</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-brandDark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-neonLime font-bold text-sm tracking-widest uppercase mb-3 block">About Rhythm Sports Zone</span>
+                    <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-6">Built for Passionate Players in Ooty</h2>
+                    <p class="text-slate-300 text-base sm:text-lg mb-6 leading-relaxed">
+                        Located conveniently at the 1st Floor of Vishalakshi Complex in Upper Bazar, Rhythm Sports Zone is Ooty's ultimate indoor destination. Whether you want to sweat it out on our indoor turf or challenge your friends in the gaming zone, we provide a clean, energetic, and safe environment for all ages.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="bg-brandCard border border-slate-800 p-4 rounded-2xl">
+                            <h4 class="text-3xl font-black text-neonBlue mb-1">4.9★</h4>
+                            <p class="text-xs text-slate-400 font-semibold uppercase">Customer Rating</p>
+                        </div>
+                        <div class="bg-brandCard border border-slate-800 p-4 rounded-2xl">
+                            <h4 class="text-3xl font-black text-neonLime mb-1">17 hrs</h4>
+                            <p class="text-xs text-slate-400 font-semibold uppercase">Daily Operation</p>
+                        </div>
+                    </div>
+                    <button onclick="openBookingModal()" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-neonBlue to-neonLime text-brandDark font-extrabold uppercase tracking-wider neon-glow-lime hover:scale-105 transition-transform">
+                        Book Your Slot Today
+                    </button>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-neonBlue to-neonLime rounded-3xl blur-xl opacity-30"></div>
+                    <div class="relative bg-brandCard border border-slate-800 p-6 sm:p-8 rounded-3xl space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-xl flex-shrink-0">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-1">Safe & Family Friendly</h3>
+                                <p class="text-slate-400 text-sm">Well-ventilated indoor venue with sanitized equipment and secure surroundings.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-neonLime/10 flex items-center justify-center text-neonLime text-xl flex-shrink-0">
+                                <i class="fa-solid fa-bolt-lightning"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-1">High-Energy Atmosphere</h3>
+                                <p class="text-slate-400 text-sm">Dynamic lighting, great sound systems, and an electric vibe to keep your adrenaline pumping.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-400/10 flex items-center justify-center text-amber-400 text-xl flex-shrink-0">
+                                <i class="fa-solid fa-indian-rupee-sign"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-1">Affordable Pricing</h3>
+                                <p class="text-slate-400 text-sm">Flexible hourly slot rates and special membership packages for regular squads.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-24 bg-[#0d1322] border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-neonBlue font-bold text-sm tracking-widest uppercase mb-3 block">Testimonials</span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-4">Loved By Players in Ooty</h2>
+                <p class="text-slate-400 text-base sm:text-lg">See what our community has to say about their experience at Rhythm Sports Zone.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-brandCard border border-slate-800 p-8 rounded-3xl relative">
+                    <div class="flex items-center text-amber-400 space-x-1 mb-4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+                        "Absolute best indoor turf in Ooty! Great lighting, amazing turf quality, and very friendly management. Perfect for weekend matches with friends."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-neonBlue to-neonLime flex items-center justify-center font-black text-brandDark">
+                            A
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Ajith Kumar</h4>
+                            <p class="text-xs text-slate-400">Local Sports Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-brandCard border border-slate-800 p-8 rounded-3xl relative">
+                    <div class="flex items-center text-amber-400 space-x-1 mb-4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+                        "The gaming zone is top-notch! Clean consoles, comfortable seating, and right in Upper Bazar. Highly recommend checking out their tournaments."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-neonLime to-teal-400 flex items-center justify-center font-black text-brandDark">
+                            S
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Sanjay Ramesh</h4>
+                            <p class="text-xs text-slate-400">Gamer & Regular Visitor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-brandCard border border-slate-800 p-8 rounded-3xl relative">
+                    <div class="flex items-center text-amber-400 space-x-1 mb-4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+                        "4.9 stars is well deserved! Extremely professional staff, easy booking via phone/WhatsApp, and an overall fantastic addition to Ooty's recreation scene."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-neonBlue to-indigo-500 flex items-center justify-center font-black text-brandDark">
+                            P
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Priya Dharshini</h4>
+                            <p class="text-xs text-slate-400">Parent & Visitor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-brandDark border-t border-slate-800/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Details -->
+                <div>
+                    <span class="text-neonBlue font-bold text-sm tracking-widest uppercase mb-3 block">Get In Touch</span>
+                    <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-6">Visit Rhythm Sports Zone</h2>
+                    <p class="text-slate-300 text-base mb-8 leading-relaxed">
+                        Ready to play? Drop by our arena in Upper Bazar or reach out via phone and WhatsApp to reserve your slot instantly.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4 bg-brandCard border border-slate-800 p-5 rounded-2xl">
+                            <div class="w-12 h-12 rounded-xl bg-neonLime/10 flex items-center justify-center text-neonLime text-xl flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white mb-1">Address</h4>
+                                <p class="text-slate-400 text-sm">1st Floor, Vishalakshi Complex, 4/3, Upper Bazar, Ooty, Tamil Nadu 643001</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 bg-brandCard border border-slate-800 p-5 rounded-2xl">
+                            <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-xl flex-shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white mb-1">Operating Hours</h4>
+                                <p class="text-slate-400 text-sm">Open Daily: 6:30 AM – 11:30 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 bg-brandCard border border-slate-800 p-5 rounded-2xl">
+                            <div class="w-12 h-12 rounded-xl bg-amber-400/10 flex items-center justify-center text-amber-400 text-xl flex-shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white mb-1">Direct Contact</h4>
+                                <p class="text-slate-400 text-sm">+91 82486 43230</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="tel:+918248643230" class="px-6 py-3 rounded-xl bg-gradient-to-r from-neonBlue to-teal-400 text-brandDark font-bold text-sm uppercase tracking-wider flex items-center space-x-2 neon-glow-blue">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Call Now</span>
+                        </a>
+                        <a href="https://wa.me/918248643230?text=Hi%20Rhythm%20Sports%20Zone,%20I%20would%20like%20to%20book%20a%20slot." target="_blank" class="px-6 py-3 rounded-xl bg-[#25D366] text-white font-bold text-sm uppercase tracking-wider flex items-center space-x-2 hover:opacity-90 shadow-lg">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>WhatsApp Chat</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Map & Quick Inquiry Box -->
+                <div class="bg-brandCard border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center space-x-2">
+                            <i class="fa-solid fa-map-location-dot text-neonLime"></i>
+                            <span>Location Map</span>
+                        </h3>
+                        <!-- Embedded Google Maps iframe pointing to Upper Bazar Ooty -->
+                        <div class="w-full h-64 rounded-2xl overflow-hidden border border-slate-700 mb-6">
+                            <iframe 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                scrolling="no" 
+                                marginheight="0" 
+                                marginwidth="0" 
+                                src="https://maps.google.com/maps?q=Upper+Bazar+Ooty+Tamil+Nadu+643001&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <button onclick="openBookingModal()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-neonBlue to-neonLime text-brandDark font-extrabold uppercase tracking-wider text-center neon-glow-blue hover:opacity-90 transition-opacity">
+                        Quick Booking Inquiry Form
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#070a12] border-t border-slate-800 py-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-neonBlue to-neonLime p-0.5 flex items-center justify-center">
+                    <div class="w-full h-full bg-brandDark rounded-[10px] flex items-center justify-center">
+                        <i class="fa-solid fa-bolt text-neonLime"></i>
+                    </div>
+                </div>
+                <span class="text-white font-bold tracking-wider uppercase">Rhythm Sports Zone, Ooty</span>
+            </div>
+
+            <p class="text-center text-xs text-slate-500">
+                © 2026 Rhythm Sports Zone. All rights reserved. Open Daily 6:30 AM – 11:30 PM.
+            </p>
+
+            <div class="flex items-center space-x-4 text-lg">
+                <a href="https://wa.me/918248643230" target="_blank" class="hover:text-neonLime transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="tel:+918248643230" class="hover:text-neonBlue transition-colors"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4">
+        <div class="bg-brandCard border border-slate-700 w-full max-w-lg rounded-3xl p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200">
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="mb-6">
+                <span class="text-neonBlue text-xs font-bold uppercase tracking-wider">Reservation Portal</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight text-white mt-1">Book Your Slot</h3>
+                <p class="text-slate-400 text-sm mt-1">Fill in your details and we will confirm your slot instantly via WhatsApp / Call.</p>
+            </div>
+
+            <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Your Full Name</label>
+                    <input type="text" id="bookName" required class="w-full bg-brandDark border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue text-sm" placeholder="e.g. Rahul Sharma">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Phone Number</label>
+                        <input type="tel" id="bookPhone" required class="w-full bg-brandDark border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue text-sm" placeholder="e.g. 9876543210">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Select Activity</label>
+                        <select id="bookActivity" class="w-full bg-brandDark border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue text-sm">
+                            <option value="Indoor Turf">Indoor Turf Arena</option>
+                            <option value="Gaming Zone">Gaming Zone / Consoles</option>
+                            <option value="Group Tournament">Group Tournament</option>
+                            <option value="General Enquiry">General / Other Enquiry</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Preferred Date</label>
+                        <input type="date" id="bookDate" required class="w-full bg-brandDark border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Preferred Time</label>
+                        <input type="time" id="bookTime" required class="w-full bg-brandDark border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue text-sm" min="06:30" max="23:30">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Additional Notes (Optional)</label>
+                    <textarea id="bookNotes" rows="2" class="w-full bg-brandDark border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue text-sm" placeholder="Number of players, duration, etc."></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-neonBlue to-neonLime text-brandDark font-extrabold text-sm uppercase tracking-wider neon-glow-blue hover:opacity-90 transition-opacity">
+                    Confirm & Send via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
+        // Modal Controls
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.remove('hidden');
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('bookDate').min = today;
+            document.getElementById('bookDate').value = today;
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        // Handle Booking Submission via WhatsApp
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('bookName').value;
+            const phone = document.getElementById('bookPhone').value;
+            const activity = document.getElementById('bookActivity').value;
+            const date = document.getElementById('bookDate').value;
+            const time = document.getElementById('bookTime').value;
+            const notes = document.getElementById('bookNotes').value;
+
+            const message = `Hello Rhythm Sports Zone,%0A%0AI would like to book a slot:%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Activity:* ${encodeURIComponent(activity)}%0A*Date:* ${encodeURIComponent(date)}%0A*Time:* ${encodeURIComponent(time)}%0A*Notes:* ${encodeURIComponent(notes)}`;
+
+            const whatsappUrl = `https://wa.me/918248643230?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+            closeBookingModal();
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeBookingModal();
+            }
+        }
+    </script>
+</body>
+</html>
